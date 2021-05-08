@@ -30,5 +30,39 @@ class MatrizAdyacenciaTest {
 		assertTrue(matriz.existeElemento(i, j), "No existe el elemento");
 		assertTrue(matriz.existeElemento(j, i), "No existe el elemento simétrico");
 	}
+	
+	@Test
+	public void eliminarElementoTest() {
+		i = 1;
+		j = 2;
+		matriz.agregarElemento(i, j);
+		matriz.eliminarElemento(i, j);		
+		assertFalse(matriz.existeElemento(i, j), "No se elimino el elemento 1");
+		
+		i = 3;
+		j = 0;
+		matriz.agregarElemento(i, j);
+		matriz.eliminarElemento(i, j);		
+		assertFalse(matriz.existeElemento(i, j), "No se elimino el elemento 2");
+	}
+	
+	@Test
+	public void eliminarElementoSimetricoTest() {
+		i = 3;
+		j = 2;
+		
+		matriz.agregarElemento(i, j);
+		matriz.eliminarElemento(i, j);		
+		assertFalse(matriz.existeElemento(i, j), "No se elimino el elemento 1");
+		assertFalse(matriz.existeElemento(j, i), "No se elimino el elemento 1 simétrico");
+		
+		i = 1;
+		j = 2;
+		
+		matriz.agregarElemento(i, j);
+		matriz.eliminarElemento(i, j);		
+		assertFalse(matriz.existeElemento(i, j), "No se elimino el elemento 2");
+		assertFalse(matriz.existeElemento(j, i), "No se elimino el elemento 2 simétrico");
+	}
 
 }
