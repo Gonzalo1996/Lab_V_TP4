@@ -65,4 +65,34 @@ class MatrizAdyacenciaTest {
 		assertFalse(matriz.existeElemento(j, i), "No se elimino el elemento 2 simétrico");
 	}
 
+	@Test
+	public void contarRelacionesTest() {
+		i = 4;
+		j = 3;
+		
+		assertEquals(0, matriz.getCantidadElementos());	
+		matriz.agregarElemento(i, j);
+		assertEquals(1, matriz.getCantidadElementos());		
+		
+		i = 1;
+		j = 3;
+		matriz.agregarElemento(i, j);
+		assertEquals(2, matriz.getCantidadElementos());		
+		
+		matriz.agregarElemento(i, j);
+		assertEquals(2, matriz.getCantidadElementos());	
+	}
+	
+	@Test
+	public void existenTodosLosElementoTest() {		
+		for(i = 0; i < a; i++) 
+		{
+			for(j = 0; j < a; j ++) 
+			{
+				matriz.agregarElemento(i, j);		
+				assertTrue(matriz.existeElemento(i, j));
+				assertTrue(matriz.existeElemento(j, i));
+			}
+		}
+	}
 }
