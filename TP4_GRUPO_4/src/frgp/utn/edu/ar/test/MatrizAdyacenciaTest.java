@@ -2,6 +2,7 @@ package frgp.utn.edu.ar.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import frgp.utn.edu.ar.main.MatrizAdyacencia;
@@ -94,5 +95,21 @@ class MatrizAdyacenciaTest {
 				assertTrue(matriz.existeElemento(j, i));
 			}
 		}
+	}
+	
+	@Test
+	public void agregarElementoFilaNegativaTest() 
+	{	
+		Assertions.assertThrows(Exception.class, () -> {
+			matriz.agregarElemento(-1, 3);
+		  });
+	}
+	
+	@Test
+	public void agregarElementoColumnaNegativaTest() 
+	{	
+		Assertions.assertThrows(Exception.class, () -> {
+			matriz.agregarElemento(3, -3);
+		  });
 	}
 }
