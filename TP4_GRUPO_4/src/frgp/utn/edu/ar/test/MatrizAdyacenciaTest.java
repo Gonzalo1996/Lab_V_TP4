@@ -3,6 +3,7 @@ package frgp.utn.edu.ar.test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import frgp.utn.edu.ar.main.MatrizAdyacencia;
@@ -14,6 +15,10 @@ class MatrizAdyacenciaTest {
 	private final int a = 5;
 	private MatrizAdyacencia matriz = new MatrizAdyacencia(a);
 
+	@BeforeEach
+	public void beforeEachTest() {
+		matriz  = new MatrizAdyacencia(a);
+	}
 	
 	@Test
 	public void agregarElementoTest() {
