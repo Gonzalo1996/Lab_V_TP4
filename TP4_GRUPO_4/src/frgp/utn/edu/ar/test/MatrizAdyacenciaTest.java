@@ -112,4 +112,20 @@ class MatrizAdyacenciaTest {
 			matriz.agregarElemento(3, -3);
 		  });
 	}
+	
+	@Test
+	public void agregarElementoFueraRangoTest() 
+	{	
+		Assertions.assertThrows(Exception.class, () -> {
+			matriz.agregarElemento(3, 5);
+		  });
+		
+		Assertions.assertThrows(Exception.class, () -> {
+			matriz.agregarElemento(5, 5);
+		  });
+		
+		Assertions.assertThrows(Exception.class, () -> {
+			matriz.agregarElemento(5, 4);
+		  });
+	} 
 }
